@@ -3,143 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قريباً | إعلان التشويقية لحلقات فلق ٢</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>فلق ٢ | قريباً</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* --- الأساسيات ونظام الألوان --- */
+        :root {
+            --primary-blue: #007bff; /* لون التشويق الأزرق */
+            --bg-dark: #121212;      /* خلفية داكنة جداً للوضوح */
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --text-main: #ffffff;
+            --text-muted: #b0bec5;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #ffffff;
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
+            
+            /* --- 1. الخلفية التفاعلية المتحركة --- */
+            background: linear-gradient(-45deg, #1a1a1a, #0d0d0d, #1a1a1a, #000a12);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 60px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        /* تحريك الخلفية */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 2. صندوق المعلومات التفاعلي (Glassmorphism) --- */
+        .main-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 70px;
+            border-radius: 30px;
             max-width: 90%;
+            width: 650px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            
+            /* --- نبض الحافة الداكن --- */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: pulseBorder 3s infinite;
         }
 
+        @keyframes pulseBorder {
+            0% { border-color: rgba(255, 255, 255, 0.05); }
+            50% { border-color: rgba(0, 123, 255, 0.2); }
+            100% { border-color: rgba(255, 255, 255, 0.05); }
+        }
+
+        /* --- الشعار --- */
         .logo {
-            max-width: 180px; /* حجم الشعار */
+            max-width: 200px;
             height: auto;
-            object-fit: contain;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            /* للتأكد من أن الشعار يبرز بوضوح حتى لو كان داكناً قليلاً */
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
         }
 
         h1 {
-            font-size: 2.8rem;
-            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
             font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .project-highlight {
+            color: var(--primary-blue); /* تمييز اسم المشروع باللون الأزرق */
         }
 
         p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        .countdown {
+        /* --- 3. عداد الوقت تفاعلي ومرتب --- */
+        .countdown-frame {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            direction: ltr;
+            gap: 20px;
+            direction: ltr; /* لترتيب الأرقام عالمياً */
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
-            border-radius: 10px;
-            min-width: 80px;
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        .time-box .label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            color: #b0bec5;
-        }
-
-        @media (max-width: 600px) {
-            .countdown { flex-wrap: wrap; }
-            .time-box { min-width: 60px; padding: 10px; }
-            .time-box span { font-size: 2rem; }
-            h1 { font-size: 2rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- مسار الصورة هنا -->
-        <img src="logo.png.jpg" alt="شعار فلق 2" class="logo">
-        
-        <h1>إعلان التشويقية لحلقات فلق ٢</h1>
-        <p>ترقبوا الإعلان التشويقي للحلقات القادمة، كونوا في الموعد!</p>
-
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <div class="label">يوم</div>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <div class="label">ساعة</div>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <div class="label">دقيقة</div>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <div class="label">ثانية</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // العداد مضبوط بعد يومين من الآن
-        const launchDate = new Date("2026-06-07T12:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.querySelector(".countdown").innerHTML = "<h2>تم إطلاق الإعلان!</h2>";
-            }
-        }, 1000);
-    </script>
-
-</body>
-</html>
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px 10px;
+            border-radius: 15px;
+            min-width: 100px;
+            border: 1px solid
