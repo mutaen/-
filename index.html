@@ -22,85 +22,104 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 60px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            max-width: 90%;
+            /* إزالة الصندوق المزعج ليكون التصميم عصري ومفتوح */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
         }
 
         .logo {
-            max-width: 180px; /* حجم الشعار */
+            /* تكبير الشعار ليغطي أغلب الموقع */
+            width: 90%;
+            max-width: 600px; 
             height: auto;
             object-fit: contain;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            /* إضافة ظل ناعم للشعار ليعطيه عمقاً */
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02); /* تفاعل بسيط عند مرور الماوس على الشعار */
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             margin: 0 0 10px 0;
             font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+            color: #f8f9fa;
         }
 
         p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #868e96; /* لون رمادي عصري ومريح للعين */
+            font-weight: 400;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             direction: ltr;
+            width: 100%;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
-            border-radius: 10px;
-            min-width: 80px;
-            /* إضافة التأثير التفاعلي البسيط هنا */
-            transition: transform 0.3s ease, background 0.3s ease;
+            /* تصميم عصري للعداد: زجاجي خفيف جداً */
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 15px;
+            border-radius: 16px;
+            min-width: 90px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
         }
 
         /* حركة ارتفاع الماوس على مربعات الوقت */
         .time-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .time-box span {
             display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3.5rem; /* أرقام ضخمة وعصرية */
+            font-weight: 900;
+            line-height: 1;
+            background: -webkit-linear-gradient(#fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .time-box .label {
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            color: #b0bec5;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            color: #6c757d;
+            font-weight: 700;
         }
 
         @media (max-width: 600px) {
-            .countdown { flex-wrap: wrap; }
-            .time-box { min-width: 60px; padding: 10px; }
-            .time-box span { font-size: 2rem; }
-            h1 { font-size: 2rem; }
+            .countdown { gap: 10px; flex-wrap: wrap; }
+            .time-box { min-width: 75px; padding: 15px 10px; }
+            .time-box span { font-size: 2.5rem; }
+            h1 { font-size: 1.8rem; }
+            .logo { max-width: 90%; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="logo.png" alt="شعار فلق ٢" class="logo">
+        <img src="logo.png.jpg" alt="شعار فلق ٢" class="logo">
         
         <h1>إعلان التشويقية لحلقات فلق ٢</h1>
         <p>ترقبوا الإعلان التشويقي للحلقات القادمة، كونوا في الموعد!</p>
@@ -145,7 +164,7 @@
 
             if (distance < 0) {
                 clearInterval(timer);
-                document.querySelector(".countdown").innerHTML = "<h2>تم إطلاق الإعلان!</h2>";
+                document.querySelector(".countdown").innerHTML = "<h2 style='font-size:2.5rem; font-weight:900;'>تم إطلاق الإعلان!</h2>";
             }
         }, 1000);
     </script>
