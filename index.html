@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قريباً | اسم مشروعك</title>
+    <title>قريباً | إعلان التشويقية لحلقات فلق ٢</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body, html {
@@ -11,7 +11,7 @@
             padding: 0;
             height: 100%;
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* خلفية متدرجة أنيقة */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -32,12 +32,14 @@
         }
 
         .logo {
-            max-width: 150px;
+            max-width: 180px; /* حجم الشعار */
+            height: auto;
+            object-fit: contain;
             margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0 0 10px 0;
             font-weight: 900;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -53,7 +55,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            direction: ltr; /* لضمان عرض الأرقام بشكل صحيح */
+            direction: ltr;
         }
 
         .time-box {
@@ -77,31 +79,22 @@
             color: #b0bec5;
         }
 
-        /* تعديلات للجوال */
         @media (max-width: 600px) {
-            .countdown {
-                flex-wrap: wrap;
-            }
-            .time-box {
-                min-width: 60px;
-                padding: 10px;
-            }
-            .time-box span {
-                font-size: 2rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
+            .countdown { flex-wrap: wrap; }
+            .time-box { min-width: 60px; padding: 10px; }
+            .time-box span { font-size: 2rem; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="logo.png" alt="شعار المشروع" class="logo">
+        <!-- مسار الصورة هنا -->
+        <img src="logo.png.jpg" alt="شعار فلق 2" class="logo">
         
-        <h1>اسم مشروعك هنا</h1>
-        <p>شيء عظيم في الطريق إليكم... نحن نعمل بشغف لإطلاق شيء استثنائي، كونوا بالقرب!</p>
+        <h1>إعلان التشويقية لحلقات فلق ٢</h1>
+        <p>ترقبوا الإعلان التشويقي للحلقات القادمة، كونوا في الموعد!</p>
 
         <div class="countdown">
             <div class="time-box">
@@ -124,31 +117,26 @@
     </div>
 
     <script>
-        // حدد تاريخ الإطلاق هنا (السنة، الشهر - 1، اليوم، الساعة، الدقيقة)
-        // ملاحظة: الأشهر تبدأ من 0 (يعني يناير = 0، فبراير = 1، وهكذا)
-        // مثال: 1 سبتمبر 2026 الساعة 00:00
-        const launchDate = new Date(2026, 10, 1, 0, 0, 0).getTime();
+        // العداد مضبوط بعد يومين من الآن
+        const launchDate = new Date("2026-06-07T12:00:00").getTime();
 
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = launchDate - now;
 
-            // حساب الوقت المتبقي
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // عرض النتيجة مع إضافة صفر إذا كان الرقم أقل من 10
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-            // إذا انتهى العداد
             if (distance < 0) {
                 clearInterval(timer);
-                document.querySelector(".countdown").innerHTML = "<h2>لقد انطلقنا!</h2>";
+                document.querySelector(".countdown").innerHTML = "<h2>تم إطلاق الإعلان!</h2>";
             }
         }, 1000);
     </script>
